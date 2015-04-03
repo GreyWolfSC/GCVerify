@@ -2,7 +2,7 @@
 <Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <ProjectView>ProjectFiles</ProjectView>
-    <PublishUrlHistory>..\clickonce\|https://github.com/GreyWolfSC/GCVerify/tree/master/clickonce/|c:\publish\|publish\</PublishUrlHistory>
+    <PublishUrlHistory>publish\|..\clickonce\|https://github.com/GreyWolfSC/GCVerify/tree/master/clickonce/|c:\publish\</PublishUrlHistory>
     <InstallUrlHistory>https://github.com/GreyWolfSC/GCVerify/tree/master/clickonce/|https://raw.github.com/GreyWolfSC/GCVerify/tree/master/clickonce/|\\hades\C%24\publish\|\\hades\publish\|http://localhost:8080/gcverify/</InstallUrlHistory>
     <SupportUrlHistory />
     <UpdateUrlHistory />

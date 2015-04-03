@@ -14,6 +14,7 @@ C:\Users\Eric\Documents\Visual Studio 2013\Projects\GameManager\GameManager\obj\
 C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\bin\Debug\GCVerify.exe.config
 C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\bin\Debug\GCVerify.exe
 C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\bin\Debug\GCVerify.pdb
+C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\obj\Debug\GameManager.csprojResolveAssemblyReference.cache
 C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\obj\Debug\MainWindow.baml
 C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\obj\Debug\MainWindow.g.cs
 C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\obj\Debug\App.g.cs
@@ -23,8 +24,3 @@ C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\obj\Deb
 C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\obj\Debug\GameManager.csproj.GenerateResource.Cache
 C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\obj\Debug\GCVerify.exe
 C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\obj\Debug\GCVerify.pdb
-C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\obj\Debug\GameManager.csprojResolveAssemblyReference.cache
-C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\bin\Debug\GCVerify.exe.manifest
-C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\bin\Debug\GCVerify.application
-C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\obj\Debug\GCVerify.exe.manifest
-C:\Users\Eric\Documents\Visual Studio 2013\Projects\GCVerify\GameManager\obj\Debug\GCVerify.application
