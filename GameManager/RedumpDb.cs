@@ -24,11 +24,21 @@ namespace GCVerify
             public string Url { get; set; }
         }
 
-        XDocument doc;
+        static XDocument doc;
 
         public RedumpDb()
         {
-            var path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "GCManager\\redump.xml");
+            if (!File.Exists(path))
+                UpdateData();
+
+            if (File.Exists(path))
+                doc = XDocument.Load(path);
+        }
+
+        public void UpdateData()
+        {
+            var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "GCManager");
             path = Path.Combine(path, "GCManager");
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
@@ -67,7 +77,7 @@ namespace GCVerify
             }
         }
 
-        public bool IsValid(string hash)
+        public static bool IsValid(string hash)
         {
             var games =
                 from g in doc.Root.Elements("game")

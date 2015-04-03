@@ -40,6 +40,7 @@ namespace GCVerify
         {
             redump = new RedumpDb();
             games = new List<GameInfo>();
+            gameList.ItemsSource = games;
         }
 
         void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -53,11 +54,7 @@ namespace GCVerify
         void worker_DoWork(object sender, DoWorkEventArgs e)
         {
             var game = e.Argument as GameInfo;
-            game.MD5Hash = "calculating";
-            var hash = CalcHash(game);
-            game.MD5Hash = hash;
-            game.RedumpValid = redump.IsValid(hash);
-            game.Modified = new FileInfo(game.Path).LastWriteTimeUtc;
+            game.GenerateHash();
         }
 
         private void GetTitle(string path)
@@ -65,28 +62,25 @@ namespace GCVerify
             if (System.IO.Path.GetExtension(path) != ".iso")
                 return;
 
-            gameList.ItemsSource = games;
-            games.Add(new GameInfo(path));
+            var info = new GameInfo(path);
+
+            if (info.IsGCGame)
+                games.Add(info);
         }
 
         private void GetTitles(string path)
         {
             var gameDirs = Directory.GetDirectories(path);
             var discs = Directory.GetFiles(path, "*.iso", SearchOption.AllDirectories);
+            GameInfo info;
 
-            gameList.ItemsSource = games;
             foreach (var game in discs)
-                games.Add(new GameInfo(game));
-        }
+            {
+                info = new GameInfo(game);
 
-        MD5 md5 = MD5.Create();
-
-        private string CalcHash(GameInfo info)
-        {
-            var b = File.OpenRead(info.Path);
-            var hash = md5.ComputeHash(b);
-            var hex = BitConverter.ToString(hash);
-            return Regex.Replace(hex, "-", "", RegexOptions.Compiled).ToLower();
+                if (info.IsGCGame)
+                    games.Add(info);
+            }
         }
 
         private void gameList_Drop(object sender, DragEventArgs e)
