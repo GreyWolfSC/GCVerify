@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="GCVerify.exe" version="1.0.0.2" publicKeyToken="3f9b13a695ddbd0e" language="neutral" processorArchitecture="msil" type="win32" />
+  <description asmv2:iconFile="app.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="GCVerify" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="GCVerify.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="GCVerify.exe" size="192928">
+      <assemblyIdentity name="GCVerify" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>I3KPX/cDmrjSIKLL3hzS0pfU0ZIOhWZ0dPEp9nW/HrI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="app.ico" size="9062">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>MMGD8fbAQWwRKUIBPqanNnTaCza4og/rTMCdxcY0f5o=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="GCVerify.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=HADES\Eric" issuerKeyHash="ab5fc2df813927190d1dc8eb0310ee2860a3e54f" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>IVxpNmnvL5WvJIclbDcrC1fA9EbZt8Mo9XzNqNHFMZM=</DigestValue></Reference></SignedInfo><SignatureValue>EFtQOo+UHSoWcK1Cr8O+ukIWty5KiLlE0YHLcHrQPTjZKomu/ZtRnIgb9BZxd4cNxSeLNwZEMid5Di7syCf5HStjoD5JjOWzMIbqs62sH1M0ugAKG+x+aYGpxqzk4wnIbdXuNHv5Iit4L21coE+JtmLKERxGDNVeymaaUfM/FyQ=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>vcnSlVMwgdIqXs/hkS/b4JInw9L3jjTT1Vk+ErwGT3zhzbQ11kfLQwa45d/KA8/mbeiyXEUr+CTr4rJLb6oVHC7NiL4pAybMcIoDDCKTSVx8zAXDaWmPA5k1twOTeCsxRJdzO3Bd78NThDyGqGTc3fNoRn7G2sQgJuQVE4JTPeE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="9331c5d1a8cd7cf528c3b7d946f4c0570b2b376c258724af952fef6936695c21" Description="" Url=""><as:assemblyIdentity name="GCVerify.exe" version="1.0.0.2" publicKeyToken="3f9b13a695ddbd0e" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=HADES\Eric</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>m5Xm8wVKEAbhIW/hkhpKPCJxCo0TadNTkWNC26+Yr9g=</DigestValue></Reference></SignedInfo><SignatureValue>qn302o8l4fRW+utJljjOMPP/fOcdSzS+gZUonXu7czTe5Ei8TEYo2lHenb4YfL3FHBxPU29Z7Kkfx8/1xsfxL7+hwQ4tAt/TkVDWxYP9UwAeVrF0V+tazWgXq0m81v7KxcFWyjNoGVPAyzJuyZCuAdSPXehgKZrjn3Lv+QBim2Q=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>vcnSlVMwgdIqXs/hkS/b4JInw9L3jjTT1Vk+ErwGT3zhzbQ11kfLQwa45d/KA8/mbeiyXEUr+CTr4rJLb6oVHC7NiL4pAybMcIoDDCKTSVx8zAXDaWmPA5k1twOTeCsxRJdzO3Bd78NThDyGqGTc3fNoRn7G2sQgJuQVE4JTPeE=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBwTCCASqgAwIBAgIQaEX5RNbS5I1BAIxBj6EXnjANBgkqhkiG9w0BAQsFADAfMR0wGwYDVQQDHhQASABBAEQARQBTAFwARQByAGkAYzAeFw0xNTA0MDMxODIzNDFaFw0xNjA0MDMwMDIzNDFaMB8xHTAbBgNVBAMeFABIAEEARABFAFMAXABFAHIAaQBjMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC9ydKVUzCB0ipez+GRL9vgkifD0veONNPVWT4SvAZPfOHNtDXWR8tDBrjl38oDz+Zt6LJcRSv4JOvisktvqhUcLs2IvikDJsxwigMMIpNJXHzMBcNpaY8DmTW3A5N4KzFEl3M7cF3vw1OEPIaoZNzd82hGfsbaxCAm5BUTglM94QIDAQABMA0GCSqGSIb3DQEBCwUAA4GBALOmr0fasdlINbN3AcI5KKDQGD0QNuUC+s3eCWWW73JgdkQpD3Zlr1JkgmHyUonsIQIBjXqW85LUY4vqJwWo6ATvSaunYz+YTOj9+QdhHhe1Q7BGmymC9PLGnbMV03eyH05a3oBh3VfYlqdUnwFV5B54k/SnwVJWQlAfy6/JtAbY</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
