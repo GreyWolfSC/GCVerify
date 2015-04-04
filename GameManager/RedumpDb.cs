@@ -39,7 +39,6 @@ namespace GCVerify
         public void UpdateData()
         {
             var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "GCManager");
-            path = Path.Combine(path, "GCManager");
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
 
