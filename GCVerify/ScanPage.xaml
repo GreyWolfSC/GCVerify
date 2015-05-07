@@ -1,0 +1,36 @@
+﻿<UserControl
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:GCVerify" x:Class="GCVerify.ScanPage" 
+      mc:Ignorable="d" 
+      d:DesignHeight="480" d:DesignWidth="640"
+      Loaded="Page_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height= "*" MinHeight="100" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" x:Name="gameList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AutoGenerateColumns="False"
+			MinHeight="100" IsReadOnly="True" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding TitleId}" />
+                <DataGridTextColumn Header="Name" Binding="{Binding DisplayName}" />
+                <DataGridTextColumn Header="Disc" Binding="{Binding DiscNumber}" />
+                <DataGridCheckBoxColumn Header="Redump" Binding="{Binding Redump}" IsThreeState="True" />
+                <DataGridCheckBoxColumn Header="GameTDB" Binding="{Binding GameTDB}" IsThreeState="True" />
+                <DataGridTextColumn Header="Path" Binding="{Binding Path}" />
+                <DataGridTextColumn Header="Hash" Binding="{Binding MD5Hash}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <StatusBar Grid.Row="1" VerticalAlignment="Bottom">
+            <StatusBarItem>
+                <TextBlock x:Name="statusText" Text="Ready" />
+            </StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <ProgressBar x:Name="progressBar" Minimum="0" Maximum="100" Height="10" Width="100" />
+            </StatusBarItem>
+        </StatusBar>
+    </Grid>
+</UserControl>

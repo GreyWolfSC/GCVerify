@@ -1,0 +1,9 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:GCVerify="clr-namespace:GCVerify" x:Name="window" x:Class="GCVerify.MainWindow"
+        Title="GCVerify" Height="480" Width="640" Loaded="Window_Loaded" WindowStyle="ToolWindow">
+    <Grid>
+        <ContentControl Name="navigationFrame" />
+    </Grid>
+</Window>
