@@ -57,6 +57,7 @@ namespace GCVerify
 
             SetStatus("Drop Gamecube game images or folders here to start");
             dropTarget.AllowDrop = true;
+            displayText.AllowDrop = true;
         }
 
         private void SetStatus(string text)

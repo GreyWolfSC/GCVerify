@@ -123,6 +123,9 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <DesignData Include="SampleData.xaml">
+      <SubType>Designer</SubType>
+    </DesignData>
     <Page Include="ScanPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

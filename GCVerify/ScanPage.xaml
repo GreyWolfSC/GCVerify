@@ -5,28 +5,43 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:GCVerify" x:Class="GCVerify.ScanPage" 
       mc:Ignorable="d" 
-      d:DesignHeight="480" d:DesignWidth="640"
-      Loaded="Page_Loaded">
+      d:DesignHeight="480" d:DesignWidth="640">
+    <UserControl.Resources>
+        <local:GameListView x:Key="GameView" />
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height= "*" MinHeight="100" />
             <RowDefinition Height= "*" MinHeight="100" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <DataGrid Grid.Row="0" x:Name="gameList" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" AutoGenerateColumns="False"
+                  DataContext="{Binding Source={StaticResource GameView}}"
+                  d:DataContext="{d:DesignData Source=SampleData.xaml}"
+                  ItemsSource="{Binding Items}" SelectedIndex="0"
 			MinHeight="100" IsReadOnly="True" SelectionMode="Single">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="ID" Binding="{Binding TitleId}" />
                 <DataGridTextColumn Header="Name" Binding="{Binding DisplayName}" />
                 <DataGridTextColumn Header="Disc" Binding="{Binding DiscNumber}" />
-                <DataGridCheckBoxColumn Header="Redump" Binding="{Binding Redump}" IsThreeState="True" />
-                <DataGridCheckBoxColumn Header="GameTDB" Binding="{Binding GameTDB}" IsThreeState="True" />
-                <DataGridTextColumn Header="Path" Binding="{Binding Path}" />
-                <DataGridTextColumn Header="Hash" Binding="{Binding MD5Hash}" />
+                <DataGridTextColumn Header="Redump" Binding="{Binding Redump}" />
             </DataGrid.Columns>
         </DataGrid>
-        <StatusBar Grid.Row="1" VerticalAlignment="Bottom">
+        <Grid Grid.Row="1" DataContext="{Binding SelectedValue, ElementName=gameList}">
+            <StackPanel>
+                <TextBlock FontSize="14"><TextBlock Text="{Binding DisplayName}" /> [<TextBlock Text="{Binding TitleId}" />]</TextBlock>
+                <TextBlock FontSize="14">Disc: <TextBlock Text="{Binding DiscNumber}"/></TextBlock>
+                <TextBlock FontSize="14">Path: <TextBlock Text="{Binding Path}"/></TextBlock>
+                <TextBlock FontSize="14">MD5: <TextBlock Text="{Binding MD5Hash}"/></TextBlock>
+                <TextBlock FontSize="14">Redump: <TextBlock Text="{Binding Redump}"/></TextBlock>
+            </StackPanel>
+        </Grid>
+        <StatusBar Grid.Row="2" VerticalAlignment="Bottom">
             <StatusBarItem>
                 <TextBlock x:Name="statusText" Text="Ready" />
+            </StatusBarItem>
+            <StatusBarItem DataContext="{Binding Source={StaticResource GameView}}" d:DataContext="{d:DesignData Source=SampleData.xaml}">
+                <TextBlock x:Name="text2" Text="{Binding Items/TitleId}" Width="120" />
             </StatusBarItem>
             <StatusBarItem HorizontalAlignment="Right">
                 <ProgressBar x:Name="progressBar" Minimum="0" Maximum="100" Height="10" Width="100" />

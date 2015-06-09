@@ -99,21 +99,6 @@ namespace GCVerify.Data
             return null;
         }
 
-        public static bool IsMD5Valid(string hash)
-        {
-
-            var games =
-                from g in doc.Root.Elements("game")
-                select g;
-
-            var rom =
-                from r in games.Elements("rom")
-                where (string)r.Attribute("md5") == hash
-                select r;
-
-            return (rom.Count() == 1);
-        }
-
         public static ImageSource GetCover(string titleId)
         {
             if (!Directory.Exists("covers"))

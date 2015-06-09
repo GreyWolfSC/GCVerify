@@ -1,0 +1,11 @@
+﻿<local:GameListView xmlns:local="clr-namespace:GCVerify">
+    <local:GameListView.Items>
+        <local:GameInfo TitleId="GAHEGG" DisplayName="Alien Hominid" Redump="Unknown"  />
+        <local:GameInfo TitleId="GKBEAF" DisplayName="Baten Kaidos" Redump="Unknown" />
+        <local:GameInfo TitleId="GKBEAF" DisplayName="Baten Kaidos 1" Redump="Unknown" />
+        <local:GameInfo TitleId="GKBEAF" DisplayName="Baten Kaidos 2" Redump="Unknown" />
+        <local:GameInfo TitleId="GGEE41" DisplayName="Beyond Good and Evil" Redump="Unknown" />
+        <local:GameInfo TitleId="GEZE8P" DisplayName="Billy Hatcher" Redump="Unknown" />
+    </local:GameListView.Items>
+</local:GameListView>
+  

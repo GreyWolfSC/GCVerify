@@ -29,12 +29,14 @@ namespace GCVerify
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new GameListView();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             startPage = new StartPage();
             startPage.dropTarget.Drop += dropTarget_Drop;
+            startPage.displayText.Drop += dropTarget_Drop;
             navigationFrame.Content = startPage;
         }
 
