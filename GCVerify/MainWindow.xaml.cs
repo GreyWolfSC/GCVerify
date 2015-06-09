@@ -22,7 +22,7 @@ using System.Xml.Serialization;
 
 namespace GCVerify
 {
-    public partial class MainWindow : Window
+    public partial class MainWindow : NavigationWindow
     {
         private StartPage startPage;
 
@@ -37,7 +37,7 @@ namespace GCVerify
             startPage = new StartPage();
             startPage.dropTarget.Drop += dropTarget_Drop;
             startPage.displayText.Drop += dropTarget_Drop;
-            navigationFrame.Content = startPage;
+            this.Content = startPage;
         }
 
         async void dropTarget_Drop(object sender, DragEventArgs e)
@@ -45,7 +45,7 @@ namespace GCVerify
             var huh = e.Data.GetDataPresent(DataFormats.FileDrop);
             var files = (string[])e.Data.GetData(DataFormats.FileDrop);
             var page = new ScanPage(files);
-            navigationFrame.Content = page;
+            this.Content = page;
             await page.CalculateHashesAsync();
         }
     }
