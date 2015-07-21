@@ -17,9 +17,12 @@ namespace GCVerify.Data
     {
         static XDocument doc;
         static Dictionary<string, string> titles;
+        static string _dataPath;
 
         public static async Task Open(string dataPath)
         {
+            _dataPath = dataPath;
+
             await Task.Run(() =>
             {
                 var dbPath = Path.Combine(dataPath, "wiitdb.zip");
@@ -104,7 +107,7 @@ namespace GCVerify.Data
             if (!Directory.Exists("covers"))
                 Directory.CreateDirectory("covers");
 
-            var filePath = Path.Combine(Environment.CurrentDirectory, string.Format(@"covers\{0}.png", titleId));
+            var filePath = Path.Combine(_dataPath, string.Format(@"covers\{0}.png", titleId));
             if (!File.Exists(filePath))
             {
                 var uri = string.Format("http://art.gametdb.com/wii/cover/{0}/{1}.png", "US", titleId);
