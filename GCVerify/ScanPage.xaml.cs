@@ -54,16 +54,15 @@ namespace GCVerify
 
                 await Task.Run(() =>
                 {
-                    using (var fl = File.OpenRead(game.Path))
+                    FileStream fl = null;
+                    Dispatcher.Invoke(() => fl = File.OpenRead(game.Path));
+                    using (var strm = new ProgressFileStream(fl, HashCalcProgressChanged))
                     {
-                        using (var strm = new ProgressFileStream(fl, HashCalcProgressChanged))
-                        {
-                            var hash = md5.ComputeHash(strm);
-                            var hex = BitConverter.ToString(hash);
-                            hex = Regex.Replace(hex, "-", "", RegexOptions.Compiled).ToLower();
-                            Dispatcher.Invoke(() => game.MD5Hash = hex);
-                            Dispatcher.Invoke(() => game.Redump = GCVerify.Data.Redump.IsMD5Valid(hex) ? "Found" : "Not found");
-                        }
+                        var hash = md5.ComputeHash(strm);
+                        var hex = BitConverter.ToString(hash);
+                        hex = Regex.Replace(hex, "-", "", RegexOptions.Compiled).ToLower();
+                        Dispatcher.Invoke(() => game.MD5Hash = hex);
+                        Dispatcher.Invoke(() => game.Redump = GCVerify.Data.Redump.IsMD5Valid(hex) ? "Found" : "Not found");
                     }
                 });
 
