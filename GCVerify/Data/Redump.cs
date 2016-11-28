@@ -16,33 +16,23 @@ namespace GCVerify.Data
         const string redumpUri = "http://redump.org/datfile/gc/";
         static XDocument doc;
 
-        public static async Task Open(string dataPath)
+        static Redump()
         {
-            await Task.Run(() =>
+            using (var arc = new ZipArchive(new MemoryStream(Properties.Resources.redump), ZipArchiveMode.Read))
             {
-                var path = Path.Combine(dataPath, "redump.zip");
-                if (!File.Exists(path))
-                    Update(dataPath);
-
-                if (File.Exists(path))
+                var entries = arc.Entries;
+                if (entries.Count > 0)
                 {
-                    using (var arc = new ZipArchive(File.OpenRead(path), ZipArchiveMode.Read))
+                    foreach (var entry in entries)
                     {
-                        var entries = arc.Entries;
-                        if (entries.Count > 0)
+                        if (entry.Name.Contains(".dat"))
                         {
-                            foreach (var entry in entries)
-                            {
-                                if (entry.Name.Contains(".dat"))
-                                {
-                                    doc = XDocument.Load(entry.Open());
-                                    break;
-                                }
-                            }
+                            doc = XDocument.Load(entry.Open());
+                            break;
                         }
                     }
                 }
-            });
+            }
         }
 
         public static void Update(string dataPath)

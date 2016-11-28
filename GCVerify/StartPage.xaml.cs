@@ -28,33 +28,8 @@ namespace GCVerify
             InitializeComponent();
         }
 
-        private async void Page_Loaded(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            var dataPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "GCVerify");
-
-            if (!Directory.Exists(dataPath))
-                Directory.CreateDirectory(dataPath);
-
-            SetStatus("Getting Redump data...");
-            try
-            {
-                await Redump.Open(dataPath);
-            }
-            catch (WebException)
-            {
-                SetStatus("Could not retrieve Redump data.");
-            }
-
-            SetStatus("Getting GameTDB data...");
-            try
-            {
-                await GameTDB.Open(dataPath);
-            }
-            catch (WebException)
-            {
-                SetStatus("Could not retrieve GameTDB data.");
-            }
-
             SetStatus("Drop Gamecube game images or folders here to start");
             dropTarget.AllowDrop = true;
             displayText.AllowDrop = true;

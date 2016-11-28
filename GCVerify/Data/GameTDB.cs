@@ -19,68 +19,40 @@ namespace GCVerify.Data
         static Dictionary<string, string> titles;
         static string _dataPath;
 
-        public static async Task Open(string dataPath)
+        static GameTDB()
         {
-            _dataPath = dataPath;
-
-            await Task.Run(() =>
+            StringReader r = new StringReader(Properties.Resources.titles);
+            string line;
+            titles = new Dictionary<string, string>();
+            string[] spl;
+            while ((line = r.ReadLine()) != null)
             {
-                var dbPath = Path.Combine(dataPath, "wiitdb.zip");
-                if (!File.Exists(dbPath))
-                    Update(dataPath);
-
-                var titlePath = Path.Combine(dataPath, "titles.txt");
-                if (File.Exists(titlePath))
-                {
-                    var list = File.ReadAllLines(titlePath);
-                    titles = new Dictionary<string, string>(list.Length);
-                    string[] spl;
-                    foreach(var item in list)
-                    {
-                        spl = item.Split('=');
-                        titles.Add(spl[0].Trim(), spl[1].Trim());
-                    }
-                }
-
-                using (var arc = new ZipArchive(File.OpenRead(dbPath), ZipArchiveMode.Read))
-                {
-                    var entries = arc.Entries;
-                    if (entries.Count > 0)
-                    {
-                        foreach (var entry in entries)
-                        {
-                            if (entry.Name.Contains(".xml"))
-                            {
-                                doc = XDocument.Load(entry.Open());
-                                return;
-                            }
-                        }
-                    }
-                }
-            });
+                spl = line.Split('=');
+                titles.Add(spl[0].Trim(), spl[1].Trim());
+            }
         }
 
         public static void Update(string dataPath)
         {
-            var filePath = Path.Combine(dataPath, "wiitdb.zip");
-            var req = HttpWebRequest.Create(string.Format("http://www.gametdb.com/wiitdb.zip?LANG={0}&FALLBACK=true&GAMECUBE=true&WIIWARE=true", "EN"));
-            var resp = req.GetResponse();
+            //var filePath = Path.Combine(dataPath, "wiitdb.zip");
+            //var req = HttpWebRequest.Create(string.Format("http://www.gametdb.com/wiitdb.zip?LANG={0}&FALLBACK=true&GAMECUBE=true&WIIWARE=true", "EN"));
+            //var resp = req.GetResponse();
             Stream strm = null;
-            if (resp != null)
-            {
-                strm = resp.GetResponseStream();
-                if (strm != null)
-                {
-                    var f = File.Create(filePath);
-                    strm.CopyTo(f);
-                    f.Close();
-                    strm.Close();
-                }
-            }
+            //if (resp != null)
+            //{
+            //    strm = resp.GetResponseStream();
+            //    if (strm != null)
+            //    {
+            //        var f = File.Create(filePath);
+            //        strm.CopyTo(f);
+            //        f.Close();
+            //        strm.Close();
+            //    }
+            //}
 
-            filePath = Path.Combine(dataPath, "titles.txt");
-            req = HttpWebRequest.Create(string.Format("http://www.gametdb.com/titles.txt?LANG={0}", "EN"));
-            resp = req.GetResponse();
+            var filePath = Path.Combine(dataPath, "titles.txt");
+            var req = HttpWebRequest.Create(string.Format("http://www.gametdb.com/titles.txt?LANG={0}", "EN"));
+            var resp = req.GetResponse();
             if (resp != null)
             {
                 strm = resp.GetResponseStream();
